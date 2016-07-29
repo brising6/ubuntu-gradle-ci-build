@@ -23,7 +23,7 @@ RUN wget -q https://services.gradle.org/distributions/gradle-2.14-bin.zip -O gra
     && gradle test \
     && npm install -g phantomjs \
     && npm install -g webpack \
-    && npm install \
+    && npm install -g \
     && git config --global user.name CI-BuildBot \
     && git config --global user.email svc_payments_ci \
     && tar -xzf cf-cli*.tgz -C /usr/bin/
