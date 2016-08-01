@@ -18,15 +18,14 @@ RUN wget -q https://services.gradle.org/distributions/gradle-2.14-bin.zip -O gra
     && rm "node-v4.2.1-linux-x64.tar.gz" \
     && node -v \
     && npm -v \
-    && curl -jksSLH "Cookie: oraclelicense=accept-securebackup-cookie" -o /tmp/unlimited_jce_policy.zip "http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip" \
-    && unzip -jo -d ${JAVA_HOME}/jre/lib/security /tmp/unlimited_jce_policy.zip \
     && cd /meta \
+    && unzip -jo -d ${JAVA_HOME}/jre/lib/security ./unlimited_jce_policy.zip \
     && gradle build \
     && gradle test \
-    && npm update \
     && npm install -g phantomjs \
     && npm install -g webpack \
-    && npm install -g \
+    && npm install -g fbjs \
+    && npm install -g typescript \
     && git config --global user.name CI-BuildBot \
     && git config --global user.email svc_payments_ci \
     && tar -xzf cf-cli*.tgz -C /usr/bin/
